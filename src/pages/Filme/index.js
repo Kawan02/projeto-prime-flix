@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import api from "../../services/api";
 import "./filme-info.css";
 
 function Filme() {
   const { id } = useParams("id");
+  const navigate = useNavigate();
   const [filme, setFilme] = useState({});
   const [loading, setLoading] = useState(true);
 
@@ -22,13 +23,14 @@ function Filme() {
           setLoading(false);
         })
         .catch(() => {
-          console.log("Filme não encontrado");
+          navigate("/", { replace: true });
+          return;
         });
     }
     loadFilme();
 
     return () => {};
-  }, []);
+  }, [id, navigate]);
 
   if (loading) {
     return (
@@ -50,7 +52,9 @@ function Filme() {
       <div className="area-btn">
         <button>Salvar</button>
         <button>
-          <a href="#">Trailer</a>
+          <a href={`https://youtube.com/results?search_query=${filme.title} Trailer`} target="_blank" rel="noreferrer">
+            Trailer
+          </a>
         </button>
       </div>
     </div>
