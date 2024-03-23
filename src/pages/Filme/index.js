@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import api from "../../services/api";
+import "./filme-info.css";
 
 function Filme() {
   const { id } = useParams("id");
@@ -33,6 +34,7 @@ function Filme() {
     return (
       <div className="filme-info">
         <h1>Carregando...</h1>
+        <div className="loader"></div>
       </div>
     );
   }
@@ -44,6 +46,13 @@ function Filme() {
       <h3>Sinopse</h3>
       <span>{filme.overview}</span>
       <strong>Avaliação: {filme.vote_average} / 10</strong>
+
+      <div className="area-btn">
+        <button>Salvar</button>
+        <button>
+          <a href="#">Trailer</a>
+        </button>
+      </div>
     </div>
   );
 }
