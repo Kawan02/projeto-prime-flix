@@ -18,6 +18,16 @@
   width: 720px;
 }
 
+.meus-filmes button {
+  padding: 8px;
+  border: 1px solid brown;
+  border-radius: 6px;
+  background-color: brown;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.5s;
+}
+
 .meus-filmes ul li {
   list-style: none;
   display: flex;
@@ -36,4 +46,10 @@
   text-decoration: none;
   color: #116feb;
   margin-right: 14px;
+  padding: 8px;
+  text-decoration: none;
+  background-color: #3498db;
+  transition: all 0.5s;
+  border-radius: 6px;
+  color: #fff;
 }

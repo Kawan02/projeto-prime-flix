@@ -53,7 +53,6 @@ function Filme() {
   if (loading) {
     return (
       <div className="filme-info">
-        <h1>Carregando...</h1>
         <div className="loader"></div>
       </div>
     );
